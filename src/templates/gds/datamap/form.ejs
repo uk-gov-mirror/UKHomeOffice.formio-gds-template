@@ -1,0 +1,44 @@
+<div class="govuk-grid-row">
+    {% ctx.columns.forEach(function(col) { %}
+    <div class="govuk-grid-column-one-half">
+       <span class="govuk-body govuk-!-font-weight-bold"> {{ col.hideLabel ? '' : ctx.t(col.label || col.title) }}</span>
+    </div>
+    {% }) %}
+</div>
+<hr class="dataGrid-hr"/>
+<div class="{{ctx.component.customClass}}" ref="{{ctx.datagridKey}}-tbody">
+    {% if (ctx.hasAddButton && ctx.hasTopSubmit) { %}
+    <button class="govuk-button govuk-button--secondary"
+            aria-label="{{ctx.t(ctx.component.addAnother || 'Add Another')}}"
+            ref="{{ctx.datagridKey}}-addRow">{{ctx.t(ctx.component.addAnother || 'Add Another')}}
+    </button>
+    {% } %}
+    {% ctx.rows.forEach(function(row, index) { %}
+    <div class="govuk-grid-row" ref="{{ctx.datagridKey}}-row">
+        {% ctx.columns.forEach(function(col) { %}
+        <div class="govuk-grid-column-one-half" ref="{{ctx.datagridKey}}"
+             data-label="{{ ctx.t(col.label || col.title) }}">
+            {{row[col.key]}}
+        </div>
+        {% }) %}
+    </div>
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            {% if (!ctx.builder && ctx.hasRemoveButtons) { %}
+            <button aria-label="Remove item" title="Remove item" type="button"
+                    class="govuk-button govuk-button--warning" ref="{{ctx.datagridKey}}-removeRow">
+                {{ctx.t(ctx.component.properties['removeItemLabel'] || 'Remove')}}
+            </button>
+            {% } %}
+        </div>
+    </div>
+    <hr class="dataGrid-hr"/>
+    {% }) %}
+    {% if (ctx.hasAddButton && ctx.hasBottomSubmit) { %}
+    <button class="govuk-button govuk-button--secondary"
+            aria-label="{{ctx.t(ctx.component.addAnother || 'Add Another')}}"
+            ref="{{ctx.datagridKey}}-addRow">{{ctx.t(ctx.component.addAnother || 'Add Another')}}
+    </button>
+    {% } %}
+</div>
+

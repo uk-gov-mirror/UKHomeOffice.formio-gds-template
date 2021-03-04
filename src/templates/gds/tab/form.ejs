@@ -1,0 +1,18 @@
+<div class="govuk-tabs" data-module="govuk-tabs">
+    <ul class="govuk-tabs__list" role="tablist">
+        {% ctx.component.components.forEach(function(tab, index) { %}
+            <li class="govuk-tabs__list-item{{ ctx.currentTab === index ? ' govuk-tabs__list-item--selected' : ''}}"
+                role="presentation" ref="{{ctx.tabLikey}}">
+                <a class="govuk-tabs__tab" href="#{{tab.key}}" ref="{{ctx.tabLinkKey}}">
+                    {{ctx.t(tab.label)}}
+                </a>
+            </li>
+        {% }) %}
+    </ul>
+    {% ctx.component.components.forEach(function(tab, index) { %}
+    <section class="govuk-tabs__panel {{ctx.currentTab === index ? '' : 'govuk-tabs__panel--hidden'}}"
+             ref="{{ctx.tabKey}}" id="{{tab.key}}">
+        {{ctx.tabComponents[index]}}
+    </section>
+    {% }) %}
+</div>

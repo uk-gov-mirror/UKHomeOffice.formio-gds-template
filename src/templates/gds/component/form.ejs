@@ -1,0 +1,5 @@
+<div id="{{ctx.id}}" class="govuk-form-group {{ctx.classes}}"{% if (ctx.styles) { %} styles="{{ctx.styles}}"{% } %} ref="component">
+    {% if (ctx.visible) { %}
+    {{ctx.children}}
+    {% } %}
+</div>

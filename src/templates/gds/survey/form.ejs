@@ -1,0 +1,27 @@
+<table class="govuk-table">
+    <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+        <th class="govuk-table__header"></th>
+        {% ctx.component.values.forEach(function(value) { %}
+        <th class="govuk-table__header">{{ctx.t(value.label)}}</th>
+        {% }) %}
+    </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+    {% ctx.component.questions.forEach(function(question) { %}
+    <tr class="govuk-table__row">
+        <td class="govuk-table__header">{{ctx.t(question.label)}}</td>
+        {% ctx.component.values.forEach(function(value) { %}
+        <td class="govuk-table__cell">
+            <div class="govuk-radios__item">
+                <input class="govuk-radios__input" type="radio" name="{{ ctx.self.getInputName(question) }}"
+                       value="{{value.value}}" id="{{ctx.key}}-{{question.value}}-{{value.value}}" ref="input">
+                <label class="govuk-label govuk-radios__label" for="{{ctx.key}}-{{question.value}}-{{value.value}}">
+                </label>
+            </div>
+        </td>
+        {% }) %}
+    </tr>
+    {% }) %}
+    </tbody>
+</table>

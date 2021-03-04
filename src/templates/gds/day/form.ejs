@@ -1,0 +1,47 @@
+<div class="govuk-date-input">
+    {% if (ctx.dayFirst && ctx.showDay) { %}
+    <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+            {% if (!ctx.component.hideInputLabels) { %}
+            <label for="{{ctx.component.key}}-day"
+                   class="govuk-label govuk-date-input__label {% if(ctx.component.fields.day.required) { %}field-required{% } %}">{{ctx.t('Day')}}</label>
+            {% } %}
+            <div>{{ctx.day}}</div>
+        </div>
+    </div>
+    {% } %}
+    {% if (ctx.showMonth) { %}
+    <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+            {% if (!ctx.component.hideInputLabels) { %}
+            <label for="{{ctx.component.key}}-month"
+                   class="govuk-label govuk-date-input__label {% if(ctx.component.fields.month.required) { %}field-required{% } %}">{{ctx.t('Month')}}</label>
+            {% } %}
+            <div>{{ctx.month}}</div>
+        </div>
+    </div>
+    {% } %}
+    {% if (!ctx.dayFirst && ctx.showDay) { %}
+    <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+            {% if (!ctx.component.hideInputLabels) { %}
+            <label for="{{ctx.component.key}}-day"
+                   class="govuk-label govuk-date-input__label {% if(ctx.component.fields.day.required) { %}field-required{% } %}">{{ctx.t('Day')}}</label>
+            {% } %}
+            <div>{{ctx.day}}</div>
+        </div>
+    </div>
+    {% } %}
+    {% if (ctx.showYear) { %}
+    <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+            {% if (!ctx.component.hideInputLabels) { %}
+            <label for="{{ctx.component.key}}-year"
+                   class="govuk-label govuk-date-input__label {% if(ctx.component.fields.year.required) { %}field-required{% } %}">{{ctx.t('Year')}}</label>
+            {% } %}
+            <div>{{ctx.year}}</div>
+        </div>
+    </div>
+    {% } %}
+</div>
+<input name="data[day]" type="hidden" class="form-control" lang="en" value="" ref="input">

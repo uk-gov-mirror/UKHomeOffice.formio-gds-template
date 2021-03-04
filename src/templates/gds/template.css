@@ -1,0 +1,88 @@
+.govuk-checkboxes__item * {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+.govuk-checkboxes__item *:before,
+.govuk-checkboxes__item *:after {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+.input-prefix-tag {
+  height: 2.5rem;
+  margin-top: 0;
+  padding: 5px;
+  border: 2px solid #0b0c0c;
+  min-width: 3rem;
+  text-align: center;
+  background-color: #1d70b8;
+  border-right: none;
+  color: white;
+}
+
+.input-suffix-tag {
+  height: 2.5rem;
+  margin-top: 0;
+  padding: 5px;
+  border: 2px solid #0b0c0c;
+  min-width: 3rem;
+  text-align: center;
+  background-color: #1d70b8;
+  border-left: none;
+  color: white;
+}
+
+@media screen and (max-width: 639px) {
+  #reorder {
+    display: none;
+  }
+
+  table.res-datagrid thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table.res-datagrid tr {
+    display: block;
+  }
+
+  table.res-datagrid td {
+    display: block;
+    width: 100%;
+  }
+
+  table.res-datagrid td::before {
+    content: attr(data-label);
+  }
+
+  table.res-datagrid td:last-child {
+    border-bottom: 10px;
+  }
+}
+.govuk-details {
+  margin-bottom: 0px !important;
+}
+
+.small-button {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.govuk-form-input--error {
+  border: 4px solid #d4351c !important;
+}
+.govuk-form-input--error:focus {
+  border-color: #0b0c0c !important;
+  box-shadow: none !important;
+}
+
+/*# sourceMappingURL=template.css.map */

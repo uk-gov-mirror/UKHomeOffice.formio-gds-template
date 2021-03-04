@@ -1,0 +1,35 @@
+<ul class="govuk-list {{ctx.component.customClass}}">
+    {% if (ctx.header) { %}
+    <div class="govuk-label govuk-section-break govuk-section-break--m govuk-section-break--visible">
+        {{ctx.header}}
+    </div>
+    {% } %}
+    {% ctx.rows.forEach(function(row, rowIndex) { %}
+    <li ref="{{ctx.editgridKey}}" class="govuk-table__cell">
+        {{row}}
+        {% if (ctx.openRows[rowIndex] && !ctx.readOnly) { %}
+        <div class="editgrid-actions">
+            <button class="govuk-button" ref="{{ctx.editgridKey}}-saveRow">{{ctx.t(ctx.component.saveRow || 'Save')}}</button>
+            {% if (ctx.component.removeRow) { %}
+            <button class="govuk-button govuk-button--secondary" ref="{{ctx.editgridKey}}-cancelRow">{{ctx.t(ctx.component.removeRow || 'Cancel')}}</button>
+            {% } %}
+        </div>
+        {% } %}
+        <div class="has-error">
+            <div class="govuk-form-group--error">
+                {{ctx.errors[rowIndex]}}
+            </div>
+        </div>
+    </li>
+    {% }) %}
+    {% if (ctx.footer) { %}
+    <li >
+        {{ctx.footer}}
+    </li>
+    {% } %}
+</ul>
+{% if (!ctx.readOnly && ctx.hasAddButton) { %}
+<button class="govuk-button" aria-label="{{ctx.t(ctx.component.addAnother || 'Add Another')}}" ref="{{ctx.editgridKey}}-addRow">
+    <i class="{{ctx.iconClass('plus')}}"></i> {{ctx.t(ctx.component.addAnother || 'Add Another')}}
+</button>
+{% } %}

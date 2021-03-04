@@ -1,0 +1,16 @@
+<div class="govuk-checkboxes__item">
+    <{{ctx.input.type}}
+    ref="input"
+    class="govuk-checkboxes__input"
+    id="{{ctx.id}}"
+    {% for (var attr in ctx.input.attr) { %}
+    {{attr}}="{{ctx.input.attr[attr]}}"
+    {% } %}
+    {% if (ctx.checked) { %}checked=true{% } %}
+    >
+</{{ctx.input.type}}>
+<label class="{{ctx.input.labelClass}} govuk-label govuk-checkboxes__label" for="{{ctx.id}}">
+    {{ctx.input.content}}
+    {% if (!ctx.self.labelIsHidden()) { %}<span>{{ctx.input.label}}</span>{% } %}
+</label>
+</div>

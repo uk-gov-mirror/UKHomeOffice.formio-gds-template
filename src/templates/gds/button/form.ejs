@@ -1,0 +1,29 @@
+{%
+var buttonType = '';
+switch (ctx.input.component.theme) {
+case 'warning':
+case 'danger':
+buttonType = 'govuk-button--warning';
+break;
+case 'secondary':
+case 'info':
+buttonType = 'govuk-button--secondary';
+break;
+}
+
+%}
+
+<{{ctx.input.type}}
+ref="button"
+class="govuk-button {{buttonType}}"
+{% for (var attr in ctx.input.attr) { %}
+{{attr}}="{{ctx.input.attr[attr]}}"
+{% } %}
+>
+{% if (ctx.component.leftIcon) { %}<i class="{{ctx.component.leftIcon}}"></i>&nbsp;{% } %}
+{{ctx.input.content}}
+{% if (ctx.component.rightIcon) { %}&nbsp;<i class="{{ctx.component.rightIcon}}"></i>{% } %}
+</{{ctx.input.type}}>
+<div ref="buttonMessageContainer">
+    <span class="govuk-hint" ref="buttonMessage"></span>
+</div>

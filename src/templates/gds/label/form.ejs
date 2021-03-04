@@ -1,0 +1,10 @@
+<label
+    class="
+        govuk-label
+        {{ctx.label.className}}
+        {% if (ctx.label.hidden) { %} govuk-visually-hidden{% } %}
+    "
+    for="{{ctx.instance.id}}-{{ctx.component.key}}"
+>
+    {{ ctx.t(ctx.component.label) }}
+</label>

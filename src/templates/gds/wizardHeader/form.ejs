@@ -1,0 +1,17 @@
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        {% ctx.panels.forEach(function(panel, index) { %}
+        {% if (ctx.currentPage === index) { %}
+        <li class="govuk-breadcrumbs__list-item" ref="{{ctx.wizardKey}}-link">{{panel.title}}</li>
+        {% } else { %}
+        <li class="govuk-breadcrumbs__list-item">
+            {% if (ctx.isBreadcrumbClickable) { %}
+                <a style="text-decoration:underline" class="govuk-breadcrumbs__link" href="#" ref="{{ctx.wizardKey}}-link">{{panel.title}}</a>
+            {% } else { %}
+                <div style="text-decoration:underline" class="govuk-breadcrumbs__link" ref="{{ctx.wizardKey}}-link">{{panel.title}}</div>
+            {% } %}
+        </li>
+        {% } %}
+        {% }) %}
+    </ol>
+</div>

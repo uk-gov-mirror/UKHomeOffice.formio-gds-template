@@ -1,0 +1,77 @@
+{%
+var columnLength = ctx.columns.length;
+switch(columnLength) {
+case 1:
+columnWidth = 'govuk-grid-column-full';
+break;
+case 2:
+columnWidth = 'govuk-grid-column-one-half';
+break;
+case 3:
+columnWidth = 'govuk-grid-column-one-third';
+break;
+case 4:
+columnWidth = 'govuk-grid-column-one-quarter';
+break;
+case 6:
+columnWidth = 'govuk-grid-column-one-half';
+break;
+default:
+console.warn('Unknown column width for converting to GDS column width: ' +  columnLength);
+columnWidth = 'govuk-grid-column-full';
+}
+%}
+
+<div class="{{ctx.component.customClass}}" ref="{{ctx.datagridKey}}-tbody">
+    {% if (ctx.hasAddButton && ctx.hasTopSubmit) { %}
+    <button class="govuk-button govuk-button--secondary"
+            aria-label="{{ctx.t(ctx.component.addAnother || 'Add Another')}}"
+            ref="{{ctx.datagridKey}}-addRow">{{ctx.t(ctx.component.addAnother || 'Add Another')}}
+    </button>
+    {% } %}
+    {% ctx.rows.forEach(function(row, index) { %}
+    <div ref="{{ctx.datagridKey}}-row" class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            <div class="govuk-grid-row">
+                {% ctx.columns.forEach(function(col) { %}
+                <div class="{{columnWidth}}" ref="{{ctx.datagridKey}}" data-label="{{ ctx.t(col.label || col.title) }}">
+                    {% if (!ctx.component.hideLabel) { %}
+                    {{ col.hideLabel ? '' : ctx.t(col.label || col.title) }}
+                    {% } %}
+                    {{row[col.key]}}
+                </div>
+                {% }) %}
+            </div>
+            <div class="govuk-grid-row govuk-!-margin-top-3">
+                <div class="govuk-grid-column-full">
+                    {% if (ctx.component.reorder) { %}
+                    <button
+                            aria-label="{{ctx.t(ctx.component.properties['reorderItemLabel'] || 'Reorder item')}}"
+                            type="button"
+                            title="{{ctx.t(ctx.component.properties['reorderItemLabel'] || 'Reorder item')}}"
+                            class="formio-drag-button govuk-button govuk-button--secondary">
+                        {{ctx.t(ctx.component.properties['reorderItemLabel'] || 'Reorder')}}
+                    </button>
+                    {% } %}
+                    {% if (!ctx.builder && ctx.hasRemoveButtons) { %}
+                    <button aria-label="{{ctx.t(ctx.component.properties['removeItemLabel'] || 'Remove item')}}"
+                            title="{{ctx.t(ctx.component.properties['removeItemLabel'] || 'Remove item')}}"
+                            type="button"
+                            class="govuk-button govuk-button--warning" ref="{{ctx.datagridKey}}-removeRow">
+                        {{ctx.t(ctx.component.properties['removeItemLabel'] || 'Remove')}}
+                    </button>
+                    {% } %}
+                </div>
+            </div>
+            <hr class="dataGrid-hr"/>
+        </div>
+    </div>
+    {% }) %}
+    {% if (ctx.hasAddButton && ctx.hasBottomSubmit) { %}
+    <button class="govuk-button govuk-button--secondary"
+            aria-label="{{ctx.t(ctx.component.addAnother || 'Add Another')}}"
+            ref="{{ctx.datagridKey}}-addRow">{{ctx.t(ctx.component.addAnother || 'Add Another')}}
+    </button>
+    {% } %}
+</div>
+

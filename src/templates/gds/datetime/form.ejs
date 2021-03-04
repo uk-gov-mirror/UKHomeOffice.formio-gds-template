@@ -1,0 +1,60 @@
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half">
+                <div class="govuk-date-input">
+                    <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                            {% if (!ctx.component.hideInputLabels) { %}
+                            <label for="{{ctx.component.key}}-day"
+                                   class="govuk-label govuk-date-input__label">{{ctx.t('Day')}}</label>
+                            {% } %}
+                            <div>{{ctx.day}}</div>
+                        </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                            {% if (!ctx.component.hideInputLabels) { %}
+                            <label for="{{ctx.component.key}}-month"
+                                   class="govuk-label govuk-date-input__label">{{ctx.t('Month')}}</label>
+                            {% } %}
+                            <div>{{ctx.month}}</div>
+                        </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                            {% if (!ctx.component.hideInputLabels) { %}
+                            <label for="{{ctx.component.key}}-year"
+                                   class="govuk-label govuk-date-input__label">{{ctx.t('Year')}}</label>
+                            {% } %}
+                            <div>{{ctx.year}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="govuk-grid-column-one-half">
+                <div class="govuk-date-input">
+                    <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                            {% if (!ctx.component.hideInputLabels) { %}
+                            <label for="{{ctx.component.key}}-hour"
+                                   class="govuk-label govuk-date-input__label">{{ctx.t('Hour')}}</label>
+                            {% } %}
+                            <div>{{ctx.hour}}</div>
+                        </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                            {% if (!ctx.component.hideInputLabels) { %}
+                            <label for="{{ctx.component.key}}-minute"
+                                   class="govuk-label govuk-date-input__label">{{ctx.t('Minute')}}</label>
+                            {% } %}
+                            <div>{{ctx.minute}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input name="data[dateTime]" type="hidden" class="form-control" lang="en" value="{{ctx.dataValue}}" ref="input">

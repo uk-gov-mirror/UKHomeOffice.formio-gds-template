@@ -1,0 +1,23 @@
+{% if (ctx.label.labelPosition !== 'bottom') { %}
+{{ ctx.labelMarkup }}
+{% } %}
+{% if (ctx.component.description) { %}
+<div class="govuk-hint">{{ctx.t(ctx.component.description)}}</div>
+{% } %}
+<div ref="messageContainer" class="govuk-error-message"></div>
+{{ctx.element}}
+{% if (ctx.component.tooltip) { %}
+<details class="govuk-details" style="margin-top: 5px" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                          {{ctx.component.tooltipTitle || 'Help'}}
+                        </span>
+    </summary>
+    <div class="govuk-details__text">
+        {{ctx.component.tooltip}}
+    </div>
+</details>
+{% } %}
+{% if (ctx.label.labelPosition === 'bottom') { %}
+{{ ctx.labelMarkup }}
+{% } %}

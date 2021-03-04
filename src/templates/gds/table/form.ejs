@@ -1,0 +1,20 @@
+<table class="govuk-table {{ctx.component.customClass}}">
+    {% if (ctx.component.header && ctx.component.header.length > 0) { %}
+    <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+        {% ctx.component.header.forEach(function(header) { %}
+        <th scope="col" class="govuk-table__header">{{ctx.t(header)}}</th>
+        {% }) %}
+    </tr>
+    </thead>
+    {% } %}
+    <tbody class="govuk-table__body">
+    {% ctx.tableComponents.forEach(function(row, rowIndex) { %}
+    <tr class="govuk-table__row" ref="row-{{ctx.id}}">
+        {% row.forEach(function(column, colIndex) { %}
+        <td class="govuk-table__cell" ref="{{ctx.tableKey}}-{{rowIndex}}"{% if (ctx.cellClassName) { %} class="{{ctx.cellClassName}} govuk-table__cell"{% } %}>{{column}}</td>
+        {% }) %}
+    </tr>
+    {% }) %}
+    </tbody>
+</table>

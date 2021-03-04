@@ -1,0 +1,14 @@
+<div id="{{ ctx.wizardKey }}-nav">
+    {% if (ctx.buttons.cancel) { %}
+    <button class="govuk-button govuk-button--secondary" ref="{{ctx.wizardKey}}-cancel">{{ctx.t('cancel')}}</button>
+    {% } %}
+    {% if (ctx.buttons.previous) { %}
+    <button class="govuk-button " ref="{{ctx.wizardKey}}-previous">{{ctx.t('previous')}}</button>
+    {% } %}
+    {% if (ctx.buttons.next) { %}
+    <button class="govuk-button" ref="{{ctx.wizardKey}}-next">{{ctx.t('next')}}</button>
+    {% } %}
+    {% if (ctx.buttons.submit) { %}
+    <button class="govuk-button" ref="{{ctx.wizardKey}}-submit">{{ctx.t('submit')}}</button>
+    {% } %}
+</div>
