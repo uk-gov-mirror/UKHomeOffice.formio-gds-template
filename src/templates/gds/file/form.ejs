@@ -20,7 +20,7 @@
     {% ctx.files.forEach(function(file) { %}
         <tr class="govuk-table__row">
             {% if (!ctx.disabled) { %}
-            <td class="govuk-table__cell"><button class="govuk-button govuk-button--warning govuk-!-margin-bottom-0" style="z-index: -1;" ref="removeLink">Remove</button></td>
+            <td class="govuk-table__cell"><button class="govuk-button govuk-button--warning govuk-!-margin-bottom-0" ref="removeLink">Remove</button></td>
             {% } %}
             <td class="govuk-table__cell">
                 {% if (ctx.component.uploadOnly) { %}
@@ -59,7 +59,7 @@
         {% ctx.files.forEach(function(file) { %}
         <tr class="govuk-table__row">
         {% if (!ctx.disabled) { %}
-          <td class="govuk-table__cell"><button class="govuk-button govuk-button--warning govuk-!-margin-bottom-0" style="z-index: -1;" ref="removeLink">Remove</button></td>
+          <td class="govuk-table__cell"><button class="govuk-button govuk-button--warning govuk-!-margin-bottom-0" ref="removeLink">Remove</button></td>
         {% } %}
          <td class="govuk-table__cell">
           <img ref="fileImage" src="" alt="{{file.originalName || file.name}}" style="width:{{ctx.component.imageSize}}px">
