@@ -10,7 +10,7 @@ This project provides the templates required to implement the GDS Design System 
 
 ### Installation
 ```bash
-   npm install @digitalpatterns/formio-gds-template
+   npm install @ukhomeoffice/formio-gds-template
 ```
 
 
@@ -18,7 +18,7 @@ This project provides the templates required to implement the GDS Design System 
 
 Using vanilla formio
 ```javascript
-import gds from '@digitalpatterns/formio-gds-template';
+import gds from '@ukhomeoffice/formio-gds-template';
 import {Formio} from 'formiojs';
 
 Formio.use(gds);
@@ -27,7 +27,7 @@ Formio.use(gds);
 Using react-formio
 
 ```javascript
-import gds from '@digitalpatterns/formio-gds-template';
+import gds from '@ukhomeoffice/formio-gds-template';
 import {Formio} from "react-formio";
 
 Formio.use(gds);

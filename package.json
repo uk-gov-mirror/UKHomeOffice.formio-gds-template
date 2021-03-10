@@ -1,5 +1,5 @@
 {
-  "name": "@digitalpatterns/formio-gds-template",
+  "name": "@ukhomeoffice/formio-gds-template",
   "version": "1.6.1",
   "description": "Gov UK design system formio templates",
   "publishConfig": {
@@ -25,7 +25,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DigitalPatterns/formio-gds-template.git"
+    "url": "git+https://github.com/UKHomeOffice/formio-gds-template.git"
   },
   "keywords": [
     "formio",
@@ -36,9 +36,9 @@
   "author": "Amin Mohammed-Coleman",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DigitalPatterns/formio-gds-template/issues"
+    "url": "https://github.com/UKHomeOffice/formio-gds-template/issues"
   },
-  "homepage": "https://github.com/DigitalPatterns/formio-gds-template#readme",
+  "homepage": "https://github.com/UKHomeOffice/formio-gds-template#readme",
   "peerDependencies": {
     "formiojs": "^4.9.26",
     "govuk-frontend": "^3.6.0"
