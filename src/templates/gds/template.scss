@@ -87,7 +87,7 @@
 
 
 .govuk-form-input--error {
-  border: $govuk-border-width-form-element-error solid $govuk-error-colour !important;
+  border: $govuk-border-width-form-element solid $govuk-error-colour !important;
 
   &:focus {
     border-color: $govuk-input-border-colour !important;

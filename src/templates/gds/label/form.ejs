@@ -1,10 +1,16 @@
+{% if (ctx.component.type !== 'container') { %}
 <label
     class="
+        {{ ctx.label.className }}
         govuk-label
-        {{ctx.label.className}}
-        {% if (ctx.label.hidden) { %} govuk-visually-hidden{% } %}
+        {% if (ctx.label.hidden) { %} govuk-!-visually-hidden{% } %}
     "
-    for="{{ctx.instance.id}}-{{ctx.component.key}}"
+    for="{{ ctx.instance.id }}-{{ ctx.component.key }}"
 >
     {{ ctx.t(ctx.component.label) }}
 </label>
+{% } else if (ctx.label.hidden !== true) { %}
+<span class="govuk-body">
+    {{ ctx.t(ctx.component.label) }}
+</span>
+{% } %}
